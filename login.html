@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GreenTrack - Login</title>
+
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <!-- Left Side -->
+        <div class="login-info">
+            <div class="brand">
+                <span class="brand-icon">🌿</span>
+                <span>Green<span>Track</span></span>
+            </div>
+
+            <h1>Take control of<br>your money.</h1>
+
+            <p>
+                Track your expenses, manage your budget,
+                and build better financial habits.
+            </p>
+
+            <div class="features">
+                <div>✓ Track your expenses</div>
+                <div>✓ Manage your monthly budget</div>
+                <div>✓ View detailed reports</div>
+            </div>
+        </div>
+
+
+        <!-- Login Card -->
+        <div class="login-section">
+
+            <div class="login-card">
+
+                <h2>Welcome Back 👋</h2>
+
+                <p class="subtitle">
+                    Login to continue to GreenTrack
+                </p>
+
+
+                <form id="loginForm">
+
+                    <!-- Username / Email / Phone -->
+                    <div class="input-group">
+
+                        <label for="identifier">
+                            Name, Email or Phone
+                        </label>
+
+                        <input
+                            type="text"
+                            id="identifier"
+                            placeholder="Enter name, email or phone"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Password -->
+                    <div class="input-group">
+
+                        <div class="password-label">
+
+                            <label for="password">
+                                Password
+                            </label>
+
+                            <a href="forgot-password.html">
+                                Forgot password?
+                            </a>
+
+                        </div>
+
+                        <div class="password-box">
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Enter your password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                id="togglePassword"
+                            >
+                                👁
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Remember Me -->
+                    <div class="remember">
+
+                        <label>
+                            <input type="checkbox" id="remember">
+                            Remember me
+                        </label>
+
+                    </div>
+
+
+                    <!-- Login Button -->
+                    <button
+                        type="submit"
+                        class="login-btn"
+                    >
+                        Login
+                    </button>
+
+
+                    <!-- Error / Success -->
+                    <p id="message"></p>
+
+                </form>
+
+
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+
+
+                <p class="signup-text">
+                    Don't have an account?
+                    <a href="register.html">Create account</a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="login.js"></script>
+
+</body>
+</html>

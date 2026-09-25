@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>GreenTrack Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="dashboard.css"
+    >
+
+    <!-- Chart.js -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js"
+    ></script>
+
+</head>
+
+<body>
+
+
+<header>
+
+    <div class="brand">
+        🌿 Green<span>Track</span>
+    </div>
+
+
+    <div class="user-area">
+
+        <span id="welcome">
+            Welcome
+        </span>
+
+        <button id="logout">
+            Logout
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<main>
+
+    <div class="page-heading">
+
+        <div>
+
+            <h1>
+                Dashboard
+            </h1>
+
+            <p>
+                Manage your income, expenses and budget.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================
+         SUMMARY CARDS
+    =================================== -->
+
+    <section class="summary-grid">
+
+        <div class="summary-card">
+
+            <span>
+                💰 Total Income
+            </span>
+
+            <h2 id="income">
+                ₹0
+            </h2>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <span>
+                💸 Total Expenses
+            </span>
+
+            <h2 id="expense">
+                ₹0
+            </h2>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <span>
+                🏦 Current Balance
+            </span>
+
+            <h2 id="balance">
+                ₹0
+            </h2>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================
+         ADD TRANSACTION
+    =================================== -->
+
+    <section class="panel">
+
+        <div class="panel-header">
+
+            <div>
+
+                <h2>
+                    Add Transaction
+                </h2>
+
+                <p>
+                    Record your income or expense.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <form id="transactionForm">
+
+            <div class="form-grid">
+
+
+                <div>
+
+                    <label>
+                        Transaction Type
+                    </label>
+
+                    <select id="type" required>
+
+                        <option value="expense">
+                            Expense
+                        </option>
+
+                        <option value="income">
+                            Income
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div>
+
+                    <label>
+                        Category
+                    </label>
+
+                    <select id="category" required>
+
+                        <option value="Food">
+                            Food
+                        </option>
+
+                        <option value="Transport">
+                            Transport
+                        </option>
+
+                        <option value="Shopping">
+                            Shopping
+                        </option>
+
+                        <option value="Bills">
+                            Bills
+                        </option>
+
+                        <option value="Education">
+                            Education
+                        </option>
+
+                        <option value="Entertainment">
+                            Entertainment
+                        </option>
+
+                        <option value="Health">
+                            Health
+                        </option>
+
+                        <option value="Salary">
+                            Salary
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div>
+
+                    <label>
+                        Amount
+                    </label>
+
+                    <input
+                        type="number"
+                        id="amount"
+                        placeholder="₹ Amount"
+                        min="1"
+                        step="0.01"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div>
+
+                    <label>
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="date"
+                        required
+                    >
+
+                </div>
+
+
+            </div>
+
+
+
+            <div>
+
+                <label>
+                    Description
+                </label>
+
+                <input
+                    type="text"
+                    id="description"
+                    placeholder="Example: Petrol, lunch, salary..."
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="primary-btn"
+            >
+                + Add Transaction
+            </button>
+
+
+            <p
+                id="transactionMessage"
+                class="message"
+            ></p>
+
+        </form>
+
+    </section>
+
+
+
+    <!-- ==================================
+         BUDGET
+    =================================== -->
+
+    <section class="panel">
+
+        <div class="panel-header">
+
+            <div>
+
+                <h2>
+                    Monthly Budget
+                </h2>
+
+                <p>
+                    Set a spending limit for the month.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <form id="budgetForm">
+
+            <div class="budget-form">
+
+                <div>
+
+                    <label>
+                        Month
+                    </label>
+
+                    <input
+                        type="month"
+                        id="budgetMonth"
+                        required
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        Budget Amount
+                    </label>
+
+                    <input
+                        type="number"
+                        id="budgetAmount"
+                        placeholder="₹ Monthly budget"
+                        min="1"
+                        step="0.01"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="primary-btn"
+                >
+                    Set Budget
+                </button>
+
+            </div>
+
+
+            <p
+                id="budgetMessage"
+                class="message"
+            ></p>
+
+        </form>
+
+
+
+        <div class="budget-box">
+
+            <div>
+
+                <span>
+                    Monthly Budget
+                </span>
+
+                <strong id="budgetValue">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Spent
+                </span>
+
+                <strong id="spentValue">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Remaining
+                </span>
+
+                <strong id="remainingValue">
+                    ₹0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="progress">
+
+            <div
+                id="budgetProgress"
+                class="progress-bar"
+            ></div>
+
+        </div>
+
+
+        <p
+            id="budgetAlert"
+            class="budget-alert"
+        ></p>
+
+    </section>
+
+
+
+    <!-- CHARTS -->
+
+    <section class="charts-grid">
+
+
+        <div class="panel chart-panel">
+
+            <h2>
+                Expense by Category
+            </h2>
+
+            <canvas
+                id="categoryChart"
+            ></canvas>
+
+        </div>
+
+
+
+        <div class="panel chart-panel">
+
+            <h2>
+                Monthly Report
+            </h2>
+
+            <canvas
+                id="monthlyChart"
+            ></canvas>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- TRANSACTIONS -->
+
+    <section class="panel">
+
+        <div class="panel-header">
+
+            <div>
+
+                <h2>
+                    Recent Transactions
+                </h2>
+
+                <p>
+                    Your latest income and expenses.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Date
+                        </th>
+
+                        <th>
+                            Type
+                        </th>
+
+                        <th>
+                            Category
+                        </th>
+
+                        <th>
+                            Description
+                        </th>
+
+                        <th>
+                            Amount
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="transactionTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="dashboard.js"></script>
+
+
+</body>
+
+</html>

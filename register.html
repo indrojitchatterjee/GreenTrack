@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>GreenTrack - Register</title>
+
+    <link
+        rel="stylesheet"
+        href="register.css"
+    >
+
+</head>
+
+<body>
+
+    <main class="register-page">
+
+        <section class="register-card">
+
+            <div class="brand">
+                🌿 Green<span>Track</span>
+            </div>
+
+
+            <h1>
+                Create your account
+            </h1>
+
+
+            <p class="muted">
+                Start tracking your money today.
+            </p>
+
+
+            <form id="registerForm">
+
+                <!-- NAME -->
+
+                <label for="name">
+                    Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Your full name"
+                    required
+                >
+
+
+                <!-- EMAIL -->
+
+                <label for="email">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="you@example.com"
+                    required
+                >
+
+
+                <!-- PHONE -->
+
+                <label for="phone">
+                    Phone
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="10-digit phone number"
+                    required
+                >
+
+
+                <!-- PASSWORD -->
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Create a password"
+                    required
+                >
+
+
+                <!-- CONFIRM PASSWORD -->
+
+                <label for="confirmPassword">
+                    Confirm Password
+                </label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Repeat your password"
+                    required
+                >
+
+
+                <button type="submit">
+                    Create Account
+                </button>
+
+
+                <p
+                    id="message"
+                    class="message"
+                ></p>
+
+            </form>
+
+
+            <p class="login-link">
+
+                Already have an account?
+
+                <a href="login.html">
+                    Login
+                </a>
+
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <script src="register.js"></script>
+
+</body>
+
+</html>
